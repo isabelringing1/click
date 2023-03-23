@@ -1,12 +1,17 @@
 body{
     margin: 0px;
     overflow: hidden;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #DB58DE;
 }
 
 #background{
     background-color: black;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .object{
@@ -14,12 +19,107 @@ body{
     transition-duration: 200ms;
     transition-timing-function: ease-out;
     transform: translate(-50%, -50%);
+    display: flex;
+    transform-origin: top left;
 }
 
-#debug{
+.img{
+    position: relative;
+    z-index: 2;
+}
+
+.glow{
+    position: absolute;
+    transform: scale(1.06);
+    -webkit-transform: scale(1.06);
+    filter: brightness(1) blur(10px);
+    -webkit-filter: brightness(1) blur(10px);
+}
+
+.debug{
     color: #DB58DE;
     position: absolute;
     top: 0;
-    right: 0;
     font-size: 20px;
 }
+
+#debug{
+    left: 0;
+}
+
+#goal{
+    right: 0;
+}
+
+.winState{
+    animation: winAnim .7s ease-in-out;
+}
+
+#logo{
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    font-size: 80px;
+    letter-spacing: 8px;
+    text-shadow: 0 0 12px #DB58DE;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+#logo:hover{
+    text-shadow: 0 0 20px #DB58DE;
+}
+
+#level-select{
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 100px;
+}
+
+.locked{
+    opacity: 0.4;
+}
+
+.done{
+    opacity: 1;
+}
+
+.unlocked{
+    opacity: 1;
+}
+
+.level{
+    text-shadow: 0 0 12px #DB58DE;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.done:hover{
+    text-shadow: 0 0 20px #DB58DE;
+}
+
+.unlocked:hover{
+    text-shadow: 0 0 20px #DB58DE;
+}
+
+@keyframes winAnim {
+    0% {
+        transform: scale(1.06);
+        -webkit-transform: scale(1.06);
+        filter: brightness(1.5) blur(10px);
+        -webkit-filter: brightness(1.5) blur(15px);
+    }
+    50% {
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        filter: brightness(1.8) blur(15px);
+        -webkit-filter: brightness(1.8) blur(15px);
+    }
+    100% {
+        transform: scale(1.06);
+        -webkit-transform: scale(1.06);
+        filter: brightness(1) blur(10px);
+        -webkit-filter: brightness(1) blur(15px);
+    }
+  }

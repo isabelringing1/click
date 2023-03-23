@@ -1,0 +1,498 @@
+{
+  "sequences":[
+    {
+      "name": "Intro",
+      "nextSequence": "one",
+      "levels": [
+        {
+          "level": 1,
+          "targetX": "50vw",
+          "targetY": "50vh",
+          "objects": [
+            {
+              "name": "click-c",
+              "extension": "png",
+              "number": 1,
+              "xFollow": 1,
+              "yFollow": -2,
+              "offsetTargetX": "-10vw",
+              "offsetTargetY": 0,
+              "rotation": -1
+            },
+            {
+              "name": "click-l",
+              "extension": "png",
+              "xFollow": -3,
+              "yFollow": 1.5,
+              "offsetTargetX": "-4vw",
+              "offsetTargetY": 0
+            },
+            {
+              "name": "click-i",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": 0,
+              "offsetTargetY": 0
+            },
+            {
+              "name": "click-c",
+              "extension": "png",
+              "number": 2,
+              "xFollow": -1,
+              "yFollow": -1,
+              "offsetTargetX": "5vw",
+              "offsetTargetY": 0,
+              "rotation": 0.3
+            },
+            {
+              "name": "click-k",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "11vw",
+              "offsetTargetY": 0,
+              "rotation": 0.6
+            },
+            {
+              "name": "bigdot",
+              "extension": "png",
+              "xFollow": -1,
+              "yFollow": -1,
+              "offsetTargetX": 0,
+              "offsetTargetY": 0
+            },
+            {
+              "name": "credit",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": 0,
+              "offsetTargetY": "-20vh",
+              "blur": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "one",
+      "nextSequence": "two",
+      "levels": [
+        {
+          "level": 1,
+          "targetX": 1000,
+          "targetY": 400,
+          "objects": [
+            {
+              "name": "big_square",
+              "extension": "png",
+              "xFollow": -3,
+              "yFollow": -3,
+              "offsetTargetX": -400,
+              "offsetTargetY": 200
+            },
+            {
+              "name": "small_square",
+              "extension": "png",
+              "xFollow": 0.6,
+              "yFollow": 0.6,
+              "offsetTargetX": -400,
+              "offsetTargetY": 200
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "targetX": 1200,
+          "targetY": "50vh",
+          "objects": [
+            {
+              "name": "big_triangle",
+              "extension": "png",
+              "xFollow": -1.1,
+              "yFollow": -2.4,
+              "offsetTargetX": -300,
+              "offsetTargetY": "-20vh"
+            },
+            {
+              "name": "small_triangle",
+              "extension": "png",
+              "xFollow": 1.5,
+              "yFollow": 2.2,
+              "offsetTargetX": -300,
+              "offsetTargetY": "-20vh"
+            },
+            {
+              "name": "big_square",
+              "extension": "png",
+              "xFollow": 1,
+              "yFollow": -2,
+              "offsetTargetX": -300,
+              "offsetTargetY": "20vh"
+            },
+            {
+              "name": "small_square",
+              "extension": "png",
+              "xFollow": -3,
+              "yFollow": -0.2,
+              "offsetTargetX": -300,
+              "offsetTargetY": "20vh"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "targetX": "50vw",
+          "targetY": "40vh",
+          "objects": [
+            {
+              "name": "big_triangle",
+              "extension": "png",
+              "xFollow": -1.1,
+              "yFollow": -2.4,
+              "offsetTargetX": "20vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "small_triangle",
+              "extension": "png",
+              "xFollow": 1.5,
+              "yFollow": 2.2,
+              "offsetTargetX": "20vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "big_square",
+              "extension": "png",
+              "xFollow": 1,
+              "yFollow": 2,
+              "offsetTargetX": "-20vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "small_square",
+              "extension": "png",
+              "xFollow": 1.5,
+              "yFollow": -1.2,
+              "offsetTargetX": "-20vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "big_circle",
+              "extension": "png",
+              "xFollow": -3,
+              "yFollow": -2,
+              "offsetTargetX": 0,
+              "offsetTargetY": "-20vh"
+            },
+            {
+              "name": "small_circle",
+              "extension": "png",
+              "xFollow": -2,
+              "yFollow": 0.2,
+              "offsetTargetX": 0,
+              "offsetTargetY": "-20vh"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "targetX": "10vw",
+          "targetY": "70vh",
+          "objects": [
+            {
+              "name": "small_circle",
+              "extension": "png",
+              "xFollow": -0.1,
+              "yFollow": -0.1,
+              "offsetTargetX": "40vw",
+              "offsetTargetY": "-20vh"
+            },
+            {
+              "name": "big_circle",
+              "extension": "png",
+              "xFollow": -3,
+              "yFollow": -2,
+              "offsetTargetX": "40vw",
+              "offsetTargetY": "-20vh"
+            },
+            {
+              "name": "bigger_circle",
+              "extension": "png",
+              "xFollow": 0.5,
+              "yFollow": 0.2,
+              "offsetTargetX": "40vw",
+              "offsetTargetY": "-20vh"
+            },
+            {
+              "name": "biggest_circle",
+              "extension": "png",
+              "xFollow": -0.3,
+              "yFollow": 0.6,
+              "offsetTargetX": "40vw",
+              "offsetTargetY": "-20vh"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "two",
+      "nextSequence": "three",
+      "levels": [
+        {
+          "level": 1,
+          "targetX": "20vw",
+          "targetY": "70vh",
+          "glow": "off",
+          "leeway": 5,
+          "objects": [
+            {
+              "name": "blue_square",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "22vw",
+              "offsetTargetY": "-37vh",
+              "blur": 2
+            },
+            {
+              "name": "blue_square",
+              "number": 2,
+              "extension": "png",
+              "xFollow": -0.6,
+              "yFollow": -0.6,
+              "offsetTargetX": "22vw",
+              "offsetTargetY": "-6vh"
+            },
+            {
+              "name": "blue_square",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 0.3,
+              "yFollow": 0.3,
+              "offsetTargetX": "38vw",
+              "offsetTargetY": "-37vh"
+            },
+            {
+              "name": "blue_square",
+              "number": 4,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "38vw",
+              "offsetTargetY": "-6vh",
+              "blur": 2
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "targetX": "55vw",
+          "targetY": "50vh",
+          "leeway": 5,
+          "objects": [
+            {
+              "name": "green_circle",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "scaleX": 1,
+              "scaleY": 1,
+              "offsetTargetX": "-35vw",
+              "offsetTargetY": "-10vh"
+            },
+            {
+              "name": "green_circle",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "scaleX": -1,
+              "scaleY": -1,
+              "offsetTargetX": "5vw",
+              "offsetTargetY": "-10vh"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "targetX": "50vw",
+          "targetY": "50vh",
+          "objects": [
+            {
+              "name": "red_square",
+              "number": 1,
+              "extension": "png",
+              "xFollow": -2,
+              "yFollow": 0.5,
+              "offsetTargetX": 0,
+              "offsetTargetY": 139,
+              "rotation": 0.5
+            },
+            {
+              "name": "red_square",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 1,
+              "yFollow": 1,
+              "offsetTargetX": 139,
+              "offsetTargetY": 0,
+              "rotation": -0.8
+              
+            },
+            {
+              "name": "red_square",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 2,
+              "yFollow": -1,
+              "offsetTargetX": -139,
+              "offsetTargetY": 0,
+              "rotation": 0.3
+            },
+            {
+              "name": "red_square",
+              "number": 4,
+              "extension": "png",
+              "xFollow": -1.3,
+              "yFollow": -1.6,
+              "offsetTargetX": 0,
+              "offsetTargetY": -139,
+              "rotation": -0.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "three",
+      "nextSequence": "four",
+      "levels": []
+    },
+    {
+      "name": "four",
+      "levels": []
+    },
+    {
+      "name": "misc",
+      "levels": [  
+        {
+          "level": 1,
+          "targetX": 1000,
+          "targetY": 200,
+          "objects": [
+            {
+              "name": "yellow_bird",
+              "extension": "png",
+              "xFollow": 1,
+              "yFollow": 1,
+              "offsetTargetX": 0,
+              "offsetTargetY": 0
+            },
+            {
+              "name": "pink_bird",
+              "extension": "png",
+              "xFollow": -1,
+              "yFollow": -1,
+              "offsetTargetX": 95,
+              "offsetTargetY": -33
+            },
+            {
+              "name": "blue_bird",
+              "extension": "png",
+              "xFollow": 1.7,
+              "yFollow": 0.2,
+              "offsetTargetX": 95,
+              "offsetTargetY": 60
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "targetX": "50vw",
+          "targetY": "50vh",
+          "objects": [
+            {
+              "name": "green_stick",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": -262,
+              "offsetTargetY": 0,
+              "rotation": 1
+            },
+            {
+              "name": "green_stick",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": -131,
+              "offsetTargetY": 0,
+              "rotation": -0.2
+              
+            },
+            {
+              "name": "green_stick",
+              "number": 3,
+              "extension": "png",
+              "xFollow": -0.4,
+              "yFollow": 0.9,
+              "offsetTargetX": 0,
+              "offsetTargetY": 0,
+              "rotation": 0.3
+            },
+            {
+              "name": "green_stick",
+              "number": 4,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": 131,
+              "offsetTargetY": 0,
+              "rotation": 0.01
+            },
+            {
+              "name": "green_stick",
+              "number": 5,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": 262,
+              "offsetTargetY": 0,
+              "rotation": -0.4
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "targetX": "50vw",
+          "targetY": "50vh",
+          "objects": [
+            {
+              "name": "begin",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": 0,
+              "offsetTargetY": 0
+            },
+            {
+              "name": "begin-dot",
+              "extension": "png",
+              "xFollow": 1,
+              "yFollow": 1,
+              "offsetTargetX": 0,
+              "offsetTargetY": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
