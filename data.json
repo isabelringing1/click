@@ -290,7 +290,7 @@
         },
         {
           "level": 2,
-          "targetX": "90vw",
+          "targetX": "30vw",
           "targetY": "10vh",
           "leeway": 5,
           "objects": [
@@ -300,7 +300,7 @@
               "extension": "png",
               "xFollow": 0,
               "yFollow": 0,
-              "offsetTargetX": "-55vw",
+              "offsetTargetX": "5vw",
               "offsetTargetY": "40vh"
             },
             {
@@ -309,25 +309,25 @@
               "extension": "png",
               "xFollow": 0,
               "yFollow": 0,
-              "offsetTargetX": "-25vw",
+              "offsetTargetX": "35vw",
               "offsetTargetY": "40vh"
             },
             {
               "name": "pupil",
               "number": 1,
               "extension": "png",
-              "xFollow": -0.1,
-              "yFollow": 0.1,
-              "offsetTargetX": "-55vw",
+              "xFollow": -0.08,
+              "yFollow": 0.08,
+              "offsetTargetX": "5vw",
               "offsetTargetY": "40vh"
             },
             {
               "name": "pupil",
               "number": 2,
               "extension": "png",
-              "xFollow": 0.1,
-              "yFollow": -0.1,
-              "offsetTargetX": "-25vw",
+              "xFollow": 0.08,
+              "yFollow": -0.08,
+              "offsetTargetX": "35vw",
               "offsetTargetY": "40vh"
             }
           ]
@@ -444,7 +444,81 @@
     {
       "name": "three",
       "nextSequence": "four",
-      "levels": []
+      "levels": [
+        {
+        "level": 1,
+        "targetX": "50vw",
+        "targetY": "50vh",
+        "leeway": 3,
+        "objects": [
+          {
+            "name": "pie_slice",
+            "number": 1,
+            "extension": "png",
+            "xFollow": 0,
+            "yFollow": 0,
+            "offsetTargetX": 0,
+            "offsetTargetY": 0,
+            "rotation": 1
+          },
+          {
+            "name": "pie_slice",
+            "number": 2,
+            "extension": "png",
+            "xFollow": 0,
+            "yFollow": 0,
+            "offsetTargetX": 0,
+            "offsetTargetY": 0,
+            "rotation": 3,
+            "offsetRotation": 60
+          },
+          {
+            "name": "pie_slice",
+            "number": 3,
+            "extension": "png",
+            "xFollow": 0,
+            "yFollow": 0,
+            "offsetTargetX": 0,
+            "offsetTargetY": 0,
+            "rotation": -2,
+            "offsetRotation": 120
+          },
+          {
+            "name": "pie_slice",
+            "number": 4,
+            "extension": "png",
+            "xFollow": 0,
+            "yFollow": 0,
+            "offsetTargetX": 0,
+            "offsetTargetY": 0,
+            "rotation": -0.5,
+            "offsetRotation": 180
+          },
+          {
+            "name": "pie_slice",
+            "number": 5,
+            "extension": "png",
+            "xFollow": 0,
+            "yFollow": 0,
+            "offsetTargetX": 0,
+            "offsetTargetY": 0,
+            "rotation": 6,
+            "offsetRotation": 240
+          },
+          {
+            "name": "pie_slice",
+            "number": 6,
+            "extension": "png",
+            "xFollow": 0,
+            "yFollow": 0,
+            "offsetTargetX": 0,
+            "offsetTargetY": 0,
+            "rotation": -0.5,
+            "offsetRotation": 300
+          }
+        ]
+        }
+      ] 
     },
     {
       "name": "four",

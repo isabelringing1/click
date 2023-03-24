@@ -84,7 +84,8 @@ function setLevel(levelNum){
         var yPos = (yDelta * obj.yFollow) + level.targetY + obj.offsetTargetY;
         div.style.top = yPos + "px";
         div.style.left = xPos + "px";
-        div.style.rotate = (dist * obj.rotation % 360) + "deg";
+        var offsetRot = obj.offsetRotation == null ? 0 : obj.offsetRotation;
+        div.style.rotate = ((dist * obj.rotation + offsetRot) % 360) + "deg";
         div.style.filter = 'blur(' + (dist * obj.blur / 100) + 'px)';
         var scaleX = obj.hasOwnProperty("scaleX") ? (1 + (dist * obj.scaleX / 1000)) : 1;
         var scaleY = obj.hasOwnProperty("scaleY") ? (1 + (dist * obj.scaleY / 1000)) : 1;
@@ -143,7 +144,8 @@ function updateObjects(x, y){
     for (let [name, obj] of currentObjects) {
         var newLeft = obj.currentPos[0] + xDelta * obj.xFollow;
         var newTop = obj.currentPos[1] + yDelta * obj.yFollow;
-        var newRot = (dist * obj.rotation % 360) + "deg";
+        var offsetRot = obj.offsetRotation == null ? 0 : obj.offsetRotation;
+        var newRot = ((dist * obj.rotation + offsetRot) % 360) + "deg";
         var newBlur = 'blur(' + (dist * obj.blur / 100) + 'px)';
 
         var scaleX = obj.hasOwnProperty("scaleX") ? (1 + (dist * obj.scaleX / 1000)) : 1;
