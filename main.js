@@ -1,4 +1,3 @@
-
 var sequences;
 var currentObjects;
 var currentSequence = null;
@@ -163,13 +162,13 @@ function updateObjects(x, y){
         obj.currentPos = [newLeft, newTop];
     }
     lastMousePos = [x, y];
-    $("#debug")[0].innerHTML = lastMousePos;
-    $("#goal")[0].innerHTML = dist;
+    $("#coord")[0].innerHTML = lastMousePos;
+    $("#dist")[0].innerHTML = dist;
 
     if (currentLevel != null && currentLevel.level > 0){
         if (currentLevel.targetX == x && currentLevel.targetY == y) {
             levelFinished = true;
-            $("#debug")[0].innerHTML = "yay";
+            $("#coord")[0].innerHTML = "yay";
             $('.glow').addClass("winState");
             setTimeout(() => {
                 $('.glow').removeClass("winState")

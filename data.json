@@ -290,31 +290,45 @@
         },
         {
           "level": 2,
-          "targetX": "55vw",
-          "targetY": "50vh",
+          "targetX": "90vw",
+          "targetY": "10vh",
           "leeway": 5,
           "objects": [
             {
-              "name": "green_circle",
+              "name": "eye",
               "number": 1,
               "extension": "png",
               "xFollow": 0,
               "yFollow": 0,
-              "scaleX": 1,
-              "scaleY": 1,
-              "offsetTargetX": "-35vw",
-              "offsetTargetY": "-10vh"
+              "offsetTargetX": "-55vw",
+              "offsetTargetY": "40vh"
             },
             {
-              "name": "green_circle",
+              "name": "eye",
               "number": 2,
               "extension": "png",
               "xFollow": 0,
               "yFollow": 0,
-              "scaleX": -1,
-              "scaleY": -1,
-              "offsetTargetX": "5vw",
-              "offsetTargetY": "-10vh"
+              "offsetTargetX": "-25vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "pupil",
+              "number": 1,
+              "extension": "png",
+              "xFollow": -0.1,
+              "yFollow": 0.1,
+              "offsetTargetX": "-55vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "pupil",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0.1,
+              "yFollow": -0.1,
+              "offsetTargetX": "-25vw",
+              "offsetTargetY": "40vh"
             }
           ]
         },
@@ -365,56 +379,12 @@
               "rotation": -0.1
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "three",
-      "nextSequence": "four",
-      "levels": []
-    },
-    {
-      "name": "four",
-      "levels": []
-    },
-    {
-      "name": "misc",
-      "levels": [  
-        {
-          "level": 1,
-          "targetX": 1000,
-          "targetY": 200,
-          "objects": [
-            {
-              "name": "yellow_bird",
-              "extension": "png",
-              "xFollow": 1,
-              "yFollow": 1,
-              "offsetTargetX": 0,
-              "offsetTargetY": 0
-            },
-            {
-              "name": "pink_bird",
-              "extension": "png",
-              "xFollow": -1,
-              "yFollow": -1,
-              "offsetTargetX": 95,
-              "offsetTargetY": -33
-            },
-            {
-              "name": "blue_bird",
-              "extension": "png",
-              "xFollow": 1.7,
-              "yFollow": 0.2,
-              "offsetTargetX": 95,
-              "offsetTargetY": 60
-            }
-          ]
         },
         {
-          "level": 2,
+          "level": 4,
           "targetX": "50vw",
           "targetY": "50vh",
+          "leeway": 3,
           "objects": [
             {
               "name": "green_stick",
@@ -468,9 +438,54 @@
               "rotation": -0.4
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "three",
+      "nextSequence": "four",
+      "levels": []
+    },
+    {
+      "name": "four",
+      "levels": []
+    },
+    {
+      "name": "misc",
+      "levels": [  
+        {
+          "level": 1,
+          "targetX": 1000,
+          "targetY": 200,
+          "objects": [
+            {
+              "name": "yellow_bird",
+              "extension": "png",
+              "xFollow": 1,
+              "yFollow": 1,
+              "offsetTargetX": 0,
+              "offsetTargetY": 0
+            },
+            {
+              "name": "pink_bird",
+              "extension": "png",
+              "xFollow": -1,
+              "yFollow": -1,
+              "offsetTargetX": 95,
+              "offsetTargetY": -33
+            },
+            {
+              "name": "blue_bird",
+              "extension": "png",
+              "xFollow": 1.7,
+              "yFollow": 0.2,
+              "offsetTargetX": 95,
+              "offsetTargetY": 60
+            }
+          ]
         },
         {
-          "level": 3,
+          "level": 2,
           "targetX": "50vw",
           "targetY": "50vh",
           "objects": [

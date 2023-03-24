@@ -40,15 +40,8 @@ body{
     color: #DB58DE;
     position: absolute;
     top: 0;
-    font-size: 20px;
-}
-
-#debug{
     left: 0;
-}
-
-#goal{
-    right: 0;
+    font-size: 20px;
 }
 
 .winState{
