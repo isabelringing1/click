@@ -21,6 +21,16 @@ $(document).ready(function() {
         }
         console.log(sequences);
         addEventListener('mousemove', onMouseMove);
+
+        $("#toggle").click(function(){
+            $("#toggle").css({"display": "none"});
+            $("#info").css({"display": "block"});
+        });
+    
+        $("#info").click(function(){
+            $("#toggle").css({"display": "block"});
+            $("#info").css({"display": "none"});
+        });
     });
 });
 
@@ -85,7 +95,8 @@ function setLevel(levelNum){
         div.style.top = yPos + "px";
         div.style.left = xPos + "px";
         var offsetRot = obj.offsetRotation == null ? 0 : obj.offsetRotation;
-        div.style.rotate = ((dist * obj.rotation + offsetRot) % 360) + "deg";
+        var rot = obj.rotation == null ? 0 : obj.rotation;
+        div.style.rotate = (dist * rot + offsetRot) + "deg";
         div.style.filter = 'blur(' + (dist * obj.blur / 100) + 'px)';
         var scaleX = obj.hasOwnProperty("scaleX") ? (1 + (dist * obj.scaleX / 1000)) : 1;
         var scaleY = obj.hasOwnProperty("scaleY") ? (1 + (dist * obj.scaleY / 1000)) : 1;
@@ -97,7 +108,7 @@ function setLevel(levelNum){
         div.appendChild(img);
         div.appendChild(glow);
 
-        if (currentLevel.hasOwnProperty("glow") && currentLevel.glow == "off"){
+        if ((currentLevel.hasOwnProperty("glow") && currentLevel.glow == "off") || (obj.hasOwnProperty("glow") && obj.glow == "off")){
             glow.style.transform = "scale(0)";
         }
 
@@ -145,7 +156,8 @@ function updateObjects(x, y){
         var newLeft = obj.currentPos[0] + xDelta * obj.xFollow;
         var newTop = obj.currentPos[1] + yDelta * obj.yFollow;
         var offsetRot = obj.offsetRotation == null ? 0 : obj.offsetRotation;
-        var newRot = ((dist * obj.rotation + offsetRot) % 360) + "deg";
+        var rot = obj.rotation == null ? 0 : obj.rotation;
+        var newRot = (dist * rot + offsetRot) + "deg";
         var newBlur = 'blur(' + (dist * obj.blur / 100) + 'px)';
 
         var scaleX = obj.hasOwnProperty("scaleX") ? (1 + (dist * obj.scaleX / 1000)) : 1;
@@ -230,14 +242,22 @@ function getPixelValue(value){
     if (!isNaN(value)){
         return value;
     }
-    // otherwise it's a percentage
-    var percent = Number(value.slice(0, -2));
+    // otherwise it's a (compound) percentage
+    var split = value.split(',');
+    var total = 0;
+    for (var i = 0; i < split.length; i++){
+        var num = Number(split[i].slice(0, -2));
+        var dim = split[i].slice(-1)[0];
+        if (dim == 'w'){
+            total += Math.floor(num / 100 * window.innerWidth);
+        }
+        else if (dim == 'h'){
+            total += Math.floor(num / 100 * window.innerHeight);
+        }
+        else if (dim == 'x'){
+            total += num;
+        }
+    }
 
-    var dim = value.slice(-1)[0];
-    if (dim == 'w'){
-        return Math.floor(percent / 100 * window.innerWidth);
-    }
-    else if (dim == 'h'){
-        return Math.floor(percent / 100 * window.innerHeight);
-    }
+    return total;
 }

@@ -8,6 +8,7 @@
           "level": 1,
           "targetX": "50vw",
           "targetY": "50vh",
+          "leeway": 2,
           "objects": [
             {
               "name": "click-c",
@@ -70,6 +71,14 @@
               "offsetTargetX": 0,
               "offsetTargetY": "-20vh",
               "blur": 1
+            },
+            {
+              "name": "hint",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": 0,
+              "offsetTargetY": "45vh"
             }
           ]
         }
@@ -382,8 +391,8 @@
         },
         {
           "level": 4,
-          "targetX": "50vw",
-          "targetY": "50vh",
+          "targetX": "20vw",
+          "targetY": "20vh",
           "leeway": 3,
           "objects": [
             {
@@ -392,9 +401,9 @@
               "extension": "png",
               "xFollow": 0,
               "yFollow": 0,
-              "offsetTargetX": -262,
-              "offsetTargetY": 0,
-              "rotation": 1
+              "offsetTargetX": "-262px,30vw",
+              "offsetTargetY": "30vh",
+              "rotation": 0.01
             },
             {
               "name": "green_stick",
@@ -402,20 +411,20 @@
               "extension": "png",
               "xFollow": 0,
               "yFollow": 0,
-              "offsetTargetX": -131,
-              "offsetTargetY": 0,
-              "rotation": -0.2
+              "offsetTargetX": "-131px,30vw",
+              "offsetTargetY": "30vh",
+              "rotation": 0.05
               
             },
             {
               "name": "green_stick",
               "number": 3,
               "extension": "png",
-              "xFollow": -0.4,
-              "yFollow": 0.9,
-              "offsetTargetX": 0,
-              "offsetTargetY": 0,
-              "rotation": 0.3
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "30vw",
+              "offsetTargetY": "30vh",
+              "rotation": 0.2
             },
             {
               "name": "green_stick",
@@ -423,9 +432,9 @@
               "extension": "png",
               "xFollow": 0,
               "yFollow": 0,
-              "offsetTargetX": 131,
-              "offsetTargetY": 0,
-              "rotation": 0.01
+              "offsetTargetX": "131px,30vw",
+              "offsetTargetY": "30vh",
+              "rotation": 1
             },
             {
               "name": "green_stick",
@@ -433,9 +442,9 @@
               "extension": "png",
               "xFollow": 0,
               "yFollow": 0,
-              "offsetTargetX": 262,
-              "offsetTargetY": 0,
-              "rotation": -0.4
+              "offsetTargetX": "262px,30vw",
+              "offsetTargetY": "30vh",
+              "rotation": 3
             }
           ]
         }
@@ -446,77 +455,825 @@
       "nextSequence": "four",
       "levels": [
         {
-        "level": 1,
-        "targetX": "50vw",
-        "targetY": "50vh",
-        "leeway": 3,
-        "objects": [
-          {
-            "name": "pie_slice",
-            "number": 1,
-            "extension": "png",
-            "xFollow": 0,
-            "yFollow": 0,
-            "offsetTargetX": 0,
-            "offsetTargetY": 0,
-            "rotation": 1
-          },
-          {
-            "name": "pie_slice",
-            "number": 2,
-            "extension": "png",
-            "xFollow": 0,
-            "yFollow": 0,
-            "offsetTargetX": 0,
-            "offsetTargetY": 0,
-            "rotation": 3,
-            "offsetRotation": 60
-          },
-          {
-            "name": "pie_slice",
-            "number": 3,
-            "extension": "png",
-            "xFollow": 0,
-            "yFollow": 0,
-            "offsetTargetX": 0,
-            "offsetTargetY": 0,
-            "rotation": -2,
-            "offsetRotation": 120
-          },
-          {
-            "name": "pie_slice",
-            "number": 4,
-            "extension": "png",
-            "xFollow": 0,
-            "yFollow": 0,
-            "offsetTargetX": 0,
-            "offsetTargetY": 0,
-            "rotation": -0.5,
-            "offsetRotation": 180
-          },
-          {
-            "name": "pie_slice",
-            "number": 5,
-            "extension": "png",
-            "xFollow": 0,
-            "yFollow": 0,
-            "offsetTargetX": 0,
-            "offsetTargetY": 0,
-            "rotation": 6,
-            "offsetRotation": 240
-          },
-          {
-            "name": "pie_slice",
-            "number": 6,
-            "extension": "png",
-            "xFollow": 0,
-            "yFollow": 0,
-            "offsetTargetX": 0,
-            "offsetTargetY": 0,
-            "rotation": -0.5,
-            "offsetRotation": 300
-          }
-        ]
+          "level": 1,
+          "targetX": "30vw",
+          "targetY": "60vh",
+          "objects": [
+            {
+              "name": "bw_rect_1",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0.2,
+              "yFollow": -0.8,
+              "offsetTargetX": "20vw,-200px",
+              "offsetTargetY": "-10vh,-200px"
+            },
+            {
+              "name": "bw_rect_1",
+              "number": 2,
+              "extension": "png",
+              "xFollow": -0.3,
+              "yFollow": 1.5,
+              "offsetTargetX": "20vw,-100px",
+              "offsetTargetY": "-10vh,-200px"
+            },
+            {
+              "name": "bw_rect_1",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 0.6,
+              "yFollow": 2,
+              "offsetTargetX": "20vw",
+              "offsetTargetY": "-10vh,-200px"
+            },
+            {
+              "name": "bw_rect_1",
+              "number": 4,
+              "extension": "png",
+              "xFollow": -0.13,
+              "yFollow": -0.13,
+              "offsetTargetX": "20vw,100px",
+              "offsetTargetY": "-10vh,-200px"
+            },
+            {
+              "name": "bw_rect_1",
+              "number": 5,
+              "extension": "png",
+              "xFollow": -1.9,
+              "yFollow": 0.1,
+              "offsetTargetX": "20vw,200px",
+              "offsetTargetY": "-10vh,-200px"
+            },
+            {
+              "name": "bw_rect_2",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 3,
+              "yFollow": -2,
+              "offsetTargetX": "20vw,-200px",
+              "offsetTargetY": "-10vh,-100px"
+            },
+            {
+              "name": "bw_rect_2",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 1.4,
+              "yFollow": 2.3,
+              "offsetTargetX": "20vw,-100px",
+              "offsetTargetY": "-10vh,-100px"
+            },
+            {
+              "name": "bw_rect_2",
+              "number": 3,
+              "extension": "png",
+              "xFollow": -2,
+              "yFollow": -3,
+              "offsetTargetX": "20vw",
+              "offsetTargetY": "-10vh,-100px"
+            },
+            {
+              "name": "bw_rect_2",
+              "number": 4,
+              "extension": "png",
+              "xFollow": 0.5,
+              "yFollow": 1,
+              "offsetTargetX": "20vw,100px",
+              "offsetTargetY": "-10vh,-100px"
+            },
+            {
+              "name": "bw_rect_2",
+              "number": 5,
+              "extension": "png",
+              "xFollow": 4,
+              "yFollow": -0.8,
+              "offsetTargetX": "20vw,200px",
+              "offsetTargetY": "-10vh,-100px"
+            },
+            {
+              "name": "bw_rect_3",
+              "number": 1,
+              "extension": "png",
+              "xFollow": -1.1,
+              "yFollow": 0.8,
+              "offsetTargetX": "20vw,-200px",
+              "offsetTargetY": "-10vh"
+            },
+            {
+              "name": "bw_rect_3",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 2.2,
+              "yFollow": 1.3,
+              "offsetTargetX": "20vw,-100px",
+              "offsetTargetY": "-10vh"
+            },
+            {
+              "name": "bw_rect_3",
+              "number": 3,
+              "extension": "png",
+              "xFollow": -3,
+              "yFollow": -3,
+              "offsetTargetX": "20vw",
+              "offsetTargetY": "-10vh"
+            },
+            {
+              "name": "bw_rect_3",
+              "number": 4,
+              "extension": "png",
+              "xFollow": 0.4,
+              "yFollow": -0.2,
+              "offsetTargetX": "20vw,100px",
+              "offsetTargetY": "-10vh"
+            },
+            {
+              "name": "bw_rect_3",
+              "number": 5,
+              "extension": "png",
+              "xFollow": -0.7,
+              "yFollow": -1,
+              "offsetTargetX": "20vw,200px",
+              "offsetTargetY": "-10vh"
+            },
+            {
+              "name": "bw_rect_4",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0.3,
+              "yFollow": 1.2,
+              "offsetTargetX": "20vw,-200px",
+              "offsetTargetY": "-10vh,100px"
+            },
+            {
+              "name": "bw_rect_4",
+              "number": 2,
+              "extension": "png",
+              "xFollow": -2.2,
+              "yFollow": 3.3,
+              "offsetTargetX": "20vw,-100px",
+              "offsetTargetY": "-10vh,100px"
+            },
+            {
+              "name": "bw_rect_4",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 2.7,
+              "yFollow": -1.2,
+              "offsetTargetX": "20vw",
+              "offsetTargetY": "-10vh,100px"
+            },
+            {
+              "name": "bw_rect_4",
+              "number": 4,
+              "extension": "png",
+              "xFollow": -0.3,
+              "yFollow": 0.9,
+              "offsetTargetX": "20vw,100px",
+              "offsetTargetY": "-10vh,100px"
+            },
+            {
+              "name": "bw_rect_4",
+              "number": 5,
+              "extension": "png",
+              "xFollow": 1.2,
+              "yFollow": 1.2,
+              "offsetTargetX": "20vw,200px",
+              "offsetTargetY": "-10vh,100px"
+            },
+            {
+              "name": "bw_rect_5",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 2,
+              "offsetTargetX": "20vw,-200px",
+              "offsetTargetY": "-10vh,200px"
+            },
+            {
+              "name": "bw_rect_5",
+              "number": 2,
+              "extension": "png",
+              "xFollow": -1,
+              "yFollow": -1.5,
+              "offsetTargetX": "20vw,-100px",
+              "offsetTargetY": "-10vh,200px"
+            },
+            {
+              "name": "bw_rect_5",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 0.5,
+              "yFollow": 0.3,
+              "offsetTargetX": "20vw",
+              "offsetTargetY": "-10vh,200px"
+            },
+            {
+              "name": "bw_rect_5",
+              "number": 4,
+              "extension": "png",
+              "xFollow": 3.2,
+              "yFollow": 4,
+              "offsetTargetX": "20vw,100px",
+              "offsetTargetY": "-10vh,200px"
+            },
+            {
+              "name": "bw_rect_5",
+              "number": 5,
+              "extension": "png",
+              "xFollow": -1,
+              "yFollow": -1.3,
+              "offsetTargetX": "20vw,200px",
+              "offsetTargetY": "-10vh,200px"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "targetX": "65vw",
+          "targetY": "75vh",
+          "leeway": 3,
+          "objects": [
+            {
+              "name": "pie_slice",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-15vw",
+              "offsetTargetY": "-25vh",
+              "rotation": -0.05
+            },
+            {
+              "name": "pie_slice",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-15vw",
+              "offsetTargetY": "-25vh",
+              "rotation": -0.1,
+              "offsetRotation": 60
+            },
+            {
+              "name": "pie_slice",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-15vw",
+              "offsetTargetY": "-25vh",
+              "rotation": -0.15,
+              "offsetRotation": 120
+            },
+            {
+              "name": "pie_slice",
+              "number": 4,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-15vw",
+              "offsetTargetY": "-25vh",
+              "rotation": -0.2,
+              "offsetRotation": 180
+            },
+            {
+              "name": "pie_slice",
+              "number": 5,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-15vw",
+              "offsetTargetY": "-25vh",
+              "rotation": -0.25,
+              "offsetRotation": 240
+            },
+            {
+              "name": "pie_slice",
+              "number": 6,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-15vw",
+              "offsetTargetY": "-25vh",
+              "rotation": -0.3,
+              "offsetRotation": 300
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "targetX": "25vw",
+          "targetY": "25vh",
+          "objects": [
+            {
+              "name": "braid",
+              "number": 1,
+              "extension": "png",
+              "xFollow": -1,
+              "yFollow": 1,
+              "offsetTargetX": "0px,25vw",
+              "offsetTargetY": "0px,25vh",
+              "offsetRotation": -45
+            },
+            {
+              "name": "braid",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0.4,
+              "yFollow": 0.2,
+              "offsetTargetX": "106.5px,25vw",
+              "offsetTargetY": "106.5px,25vh",
+              "offsetRotation": 135
+            },
+            {
+              "name": "braid",
+              "number": 3,
+              "extension": "png",
+              "xFollow": -2.1,
+              "yFollow": -1.5,
+              "offsetTargetX": "-106.5px,25vw",
+              "offsetTargetY": "106.5px,25vh",
+              "offsetRotation": 45
+            },
+            {
+              "name": "braid",
+              "number": 4,
+              "extension": "png",
+              "xFollow": -1,
+              "yFollow": 1,
+              "offsetTargetX": "0px,25vw",
+              "offsetTargetY": "213px,25vh",
+              "offsetRotation": 45
+            },
+            {
+              "name": "braid",
+              "number": 5,
+              "extension": "png",
+              "xFollow": 2,
+              "yFollow": -0.4,
+              "offsetTargetX": "-213px,25vw",
+              "offsetTargetY": "213px,25vh",
+              "offsetRotation": -45
+            },
+            {
+              "name": "braid",
+              "number": 6,
+              "extension": "png",
+              "xFollow": 3,
+              "yFollow": 2,
+              "offsetTargetX": "-106.5px,25vw",
+              "offsetTargetY": "319.5px,25vh",
+              "offsetRotation": 135
+            },
+            {
+              "name": "braid",
+              "number": 7,
+              "extension": "png",
+              "xFollow": -0.2,
+              "yFollow": -0.9,
+              "offsetTargetX": "-319.5px,25vw",
+              "offsetTargetY": "319.5px,25vh",
+              "offsetRotation": 45
+            },
+            {
+              "name": "braid",
+              "number": 8,
+              "extension": "png",
+              "xFollow": -0.6,
+              "yFollow": 1.6,
+              "offsetTargetX": "-213px,25vw",
+              "offsetTargetY": "426px,25vh",
+              "offsetRotation": 45
+            },
+            {
+              "name": "braid",
+              "number": 9,
+              "extension": "png",
+              "xFollow": 2,
+              "yFollow": -2,
+              "offsetTargetX": "-426px,25vw",
+              "offsetTargetY": "426px,25vh",
+              "offsetRotation": -45
+            },
+            {
+              "name": "braid",
+              "number": 10,
+              "extension": "png",
+              "xFollow": 0.5,
+              "yFollow": 2.7,
+              "offsetTargetX": "-319.5px,25vw",
+              "offsetTargetY": "532.5px,25vh",
+              "offsetRotation": 135
+            },
+
+            {
+              "name": "braid",
+              "number": 11,
+              "extension": "png",
+              "xFollow": -1.2,
+              "yFollow": 3,
+              "offsetTargetX": "106.5px,25vw",
+              "offsetTargetY": "-106.5px,25vh",
+              "offsetRotation": 45
+            },
+            {
+              "name": "braid",
+              "number": 12,
+              "extension": "png",
+              "xFollow": -0.9,
+              "yFollow": 2,
+              "offsetTargetX": "213px,25vw",
+              "offsetTargetY": "0px,25vh",
+              "offsetRotation": 45
+            },
+            {
+              "name": "braid",
+              "number": 13,
+              "extension": "png",
+              "xFollow": 0.2,
+              "yFollow": 3,
+              "offsetTargetX": "213px,25vw",
+              "offsetTargetY": "-213px,25vh",
+              "offsetRotation": -45
+            },
+            {
+              "name": "braid",
+              "number": 14,
+              "extension": "png",
+              "xFollow": 2.1,
+              "yFollow": -1.2,
+              "offsetTargetX": "319.5px,25vw",
+              "offsetTargetY": "-106.5px,25vh",
+              "offsetRotation": 135
+            },
+            {
+              "name": "braid",
+              "number": 15,
+              "extension": "png",
+              "xFollow": -3.2,
+              "yFollow": -2,
+              "offsetTargetX": "319.5px,25vw",
+              "offsetTargetY": "-319.5px,25vh",
+              "offsetRotation": 45
+            },
+            {
+              "name": "braid",
+              "number": 16,
+              "extension": "png",
+              "xFollow": 2.1,
+              "yFollow": 0.5,
+              "offsetTargetX": "426px,25vw",
+              "offsetTargetY": "-213px,25vh",
+              "offsetRotation": 45
+            },
+            {
+              "name": "braid",
+              "number": 17,
+              "extension": "png",
+              "xFollow": -3,
+              "yFollow": 2,
+              "offsetTargetX": "426px,25vw",
+              "offsetTargetY": "-426px,25vh",
+              "offsetRotation": -45
+            },
+            {
+              "name": "braid",
+              "number": 18,
+              "extension": "png",
+              "xFollow": -0.9,
+              "yFollow": 0.2,
+              "offsetTargetX": "532.5px,25vw",
+              "offsetTargetY": "-319.5px,25vh",
+              "offsetRotation": 135
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "targetX": "90vw",
+          "targetY": "90vh",
+          "leeway": 4,
+          "objects": [
+            {
+              "name": "outer",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-125px,-40vw",
+              "offsetTargetY": "-125px,-40vh",
+              "glow": "off"
+            },
+            {
+              "name": "inner",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0.1,
+              "yFollow": -0.21,
+              "offsetTargetX": "-125px,-40vw",
+              "offsetTargetY": "-125px,-40vh"
+            },
+            {
+              "name": "outer",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "125px,-40vw",
+              "offsetTargetY": "-125px,-40vh",
+              "glow": "off"
+            },
+            {
+              "name": "inner",
+              "number": 2,
+              "extension": "png",
+              "xFollow": -0.12,
+              "yFollow": -0.09,
+              "offsetTargetX": "125px,-40vw",
+              "offsetTargetY": "-125px,-40vh"
+            },
+            {
+              "name": "outer",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-375px,-40vw",
+              "offsetTargetY": "-125px,-40vh",
+              "glow": "off"
+            },
+            {
+              "name": "inner",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 0.15,
+              "yFollow": 0.2,
+              "offsetTargetX": "-375px,-40vw",
+              "offsetTargetY": "-125px,-40vh"
+            },
+            {
+              "name": "outer",
+              "number": 4,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "375px,-40vw",
+              "offsetTargetY": "-125px,-40vh",
+              "glow": "off"
+            },
+            {
+              "name": "inner",
+              "number": 4,
+              "extension": "png",
+              "xFollow": -0.14,
+              "yFollow": -0.14,
+              "offsetTargetX": "375px,-40vw",
+              "offsetTargetY": "-125px,-40vh"
+            },
+            {
+              "name": "outer",
+              "number": 5,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-125px,-40vw",
+              "offsetTargetY": "-375px,-40vh",
+              "glow": "off",
+              "offsetRotation": 180
+            },
+            {
+              "name": "inner",
+              "number": 5,
+              "extension": "png",
+              "xFollow": -0.13,
+              "yFollow": 0.13,
+              "offsetTargetX": "-125px,-40vw",
+              "offsetTargetY": "-375px,-40vh",
+              "offsetRotation": 180
+            },
+            {
+              "name": "outer",
+              "number": 6,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "125px,-40vw",
+              "offsetTargetY": "-375px,-40vh",
+              "glow": "off",
+              "offsetRotation": 180
+            },
+            {
+              "name": "inner",
+              "number": 6,
+              "extension": "png",
+              "xFollow": -0.15,
+              "yFollow": -0.2,
+              "offsetTargetX": "125px,-40vw",
+              "offsetTargetY": "-375px,-40vh",
+              "offsetRotation": 180
+            },
+            {
+              "name": "outer",
+              "number": 7,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-375px,-40vw",
+              "offsetTargetY": "-375px,-40vh",
+              "glow": "off",
+              "offsetRotation": 180
+            },
+            {
+              "name": "inner",
+              "number": 7,
+              "extension": "png",
+              "xFollow": 0.2,
+              "yFollow": -0.13,
+              "offsetTargetX": "-375px,-40vw",
+              "offsetTargetY": "-375px,-40vh",
+              "offsetRotation": 180
+            },
+            {
+              "name": "outer",
+              "number": 8,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "375px,-40vw",
+              "offsetTargetY": "-375px,-40vh",
+              "glow": "off",
+              "offsetRotation": 180
+            },
+            {
+              "name": "inner",
+              "number": 8,
+              "extension": "png",
+              "xFollow": 0.09,
+              "yFollow": 0.02,
+              "offsetTargetX": "375px,-40vw",
+              "offsetTargetY": "-375px,-40vh",
+              "offsetRotation": 180
+            },
+            {
+              "name": "outer",
+              "number": 9,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-125px,-40vw",
+              "offsetTargetY": "125px,-40vh",
+              "glow": "off",
+              "offsetRotation": 180
+            },
+            {
+              "name": "inner",
+              "number": 9,
+              "extension": "png",
+              "xFollow": 0.18,
+              "yFollow": -0.05,
+              "offsetTargetX": "-125px,-40vw",
+              "offsetTargetY": "125px,-40vh",
+              "offsetRotation": 180
+            },
+            {
+              "name": "outer",
+              "number": 10,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "125px,-40vw",
+              "offsetTargetY": "125px,-40vh",
+              "glow": "off",
+              "offsetRotation": 180
+            },
+            {
+              "name": "inner",
+              "number": 10,
+              "extension": "png",
+              "xFollow": -0.09,
+              "yFollow": 0.12,
+              "offsetTargetX": "125px,-40vw",
+              "offsetTargetY": "125px,-40vh",
+              "offsetRotation": 180
+            },
+            {
+              "name": "outer",
+              "number": 11,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-375px,-40vw",
+              "offsetTargetY": "125px,-40vh",
+              "glow": "off",
+              "offsetRotation": 180
+            },
+            {
+              "name": "inner",
+              "number": 11,
+              "extension": "png",
+              "xFollow": -0.11,
+              "yFollow": -0.08,
+              "offsetTargetX": "-375px,-40vw",
+              "offsetTargetY": "125px,-40vh",
+              "offsetRotation": 180
+            },
+            {
+              "name": "outer",
+              "number": 12,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "375px,-40vw",
+              "offsetTargetY": "125px,-40vh",
+              "glow": "off",
+              "offsetRotation": 180
+            },
+            {
+              "name": "inner",
+              "number": 12,
+              "extension": "png",
+              "xFollow": 0.06,
+              "yFollow": 0.03,
+              "offsetTargetX": "375px,-40vw",
+              "offsetTargetY": "125px,-40vh",
+              "offsetRotation": 180
+            },
+            {
+              "name": "outer",
+              "number": 13,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-125px,-40vw",
+              "offsetTargetY": "375px,-40vh",
+              "glow": "off"
+            },
+            {
+              "name": "inner",
+              "number": 13,
+              "extension": "png",
+              "xFollow": -0.1,
+              "yFollow": -0.1,
+              "offsetTargetX": "-125px,-40vw",
+              "offsetTargetY": "375px,-40vh"
+            },
+            {
+              "name": "outer",
+              "number": 14,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "125px,-40vw",
+              "offsetTargetY": "375px,-40vh",
+              "glow": "off"
+            },
+            {
+              "name": "inner",
+              "number": 14,
+              "extension": "png",
+              "xFollow": -0.14,
+              "yFollow": 0.08,
+              "offsetTargetX": "125px,-40vw",
+              "offsetTargetY": "375px,-40vh"
+            },
+            {
+              "name": "outer",
+              "number": 15,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-375px,-40vw",
+              "offsetTargetY": "375px,-40vh",
+              "glow": "off"
+            },
+            {
+              "name": "inner",
+              "number": 15,
+              "extension": "png",
+              "xFollow": 0.12,
+              "yFollow": -0.08,
+              "offsetTargetX": "-375px,-40vw",
+              "offsetTargetY": "375px,-40vh"
+            },
+            {
+              "name": "outer",
+              "number": 16,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "375px,-40vw",
+              "offsetTargetY": "375px,-40vh",
+              "glow": "off"
+            },
+            {
+              "name": "inner",
+              "number": 16,
+              "extension": "png",
+              "xFollow": 0.07,
+              "yFollow": 0.05,
+              "offsetTargetX": "375px,-40vw",
+              "offsetTargetY": "375px,-40vh"
+            }
+          ]
         }
       ] 
     },
