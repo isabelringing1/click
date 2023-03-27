@@ -301,7 +301,7 @@
           "level": 2,
           "targetX": "30vw",
           "targetY": "10vh",
-          "leeway": 5,
+          "leeway": 20,
           "objects": [
             {
               "name": "eye",
