@@ -12,6 +12,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
 }
 
 .object{
@@ -115,4 +116,33 @@ body{
         filter: brightness(1) blur(10px);
         -webkit-filter: brightness(1) blur(15px);
     }
+  }
+
+  #vid-div{
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+  }
+
+  #vid{
+    width: 640px;
+    height: 480px;
+    position: absolute;
+    opacity: 0.5;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
+  #vid-canvas{
+    position: absolute;
+  }
+
+  #vid-coords{
+    bottom: 0;
+    left: 0;
+    position: relative;
   }
