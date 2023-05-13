@@ -9,8 +9,12 @@
 
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection"></script>
         <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"> </script> 
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/face-detection"></script>
+
         <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+        <script src="jquery-collision.min.js"></script>
         <script src="main.js"></script>
         <meta charset="UTF-8"/>
     </head>
@@ -20,9 +24,14 @@
             <canvas id="vid-canvas"><div id="vid-coords"></div></canvas>
         </div>
         
+        <div id="cursor" style="display:none">
+            <div id="cursor-border" style="--p:0;"></div>
+            <img src="images/cursor.png" class="img"/>
+            <img src="images/cursor.png" class="glow"/>
+        </div>
+
         <div id="background">
             <div class="debug" style="display:none">
-                <div id="toggle">debug</div>
                 <div id="info" style="display:none">
                     <div id="coord"></div>
                     <div id="goal"></div>
@@ -33,12 +42,30 @@
             <div id="menu" style="display:none">
                 <div id="logo"> click </div>
                 <div id="level-select">
-                    <div id="one" class="level">I</div>
-                    <div id="two" class="level">II</div>
-                    <div id="three" class="level">III</div>
+                    <div id="one" class="level clickable">I</div>
+                    <div id="two" class="level clickable">II</div>
+                    <div id="three" class="level clickable">III</div>
                     <!-- <div id="four" class="level">VI</div> -->
                 </div>
             </div>
         </div>
+        
+        <img src="images/hamburger.png" id="hamburger"/></div>
+        <div id="side-bar" class="hidden">
+            <div id="menu-button"> main menu </div><br>
+            <div id="control"> control mode:&nbsp;<span id="control-dropdown"> <span id="control-dropdown-current">mouse</span>
+                <div id="control-dropdown-content">
+                    <span class="dropdown-item control" id="dropdown-mouse">mouse</span>
+                    <span class="dropdown-item control" id="dropdown-hand">index finger</span>
+                    <span class="dropdown-item control" id="dropdown-nose">nose</span>
+                </div>
+            </span> </div>
+        <br>
+        <div id="debug-sidebar"> debug:&nbsp;<span id="debug-dropdown"> <span id="debug-dropdown-current">off</span>
+            <div id="debug-dropdown-content">
+                <span class="dropdown-item debug-sidebar" id="dropdown-on">on</span>
+                <span class="dropdown-item debug-sidebar" id="dropdown-off">off</span>
+            </div>
+        </span> </div>
     </body>
     </html>

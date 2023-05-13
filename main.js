@@ -7,6 +7,7 @@ var moveDelay = 50;
 var lastMousePos;
 var levelFinished = true;
 var handsReady = false;
+var noseReady = false;
 var videoShowing = false;
 var video;
 var videoDiv;
@@ -15,6 +16,15 @@ var ctx;
 var detector;
 var media_recorder;
 var handsMode = false;
+var noseMode = false;
+var sidebarShown = false;
+var debugOn = false;
+var collisionId = "";
+var cursorTimeout;
+var cursorInterval;
+var videoSetUp;
+var lastIndexPos = [0, 0];
+var lastNosePos = [0, 0];
 
 var videoWidth = 640;
 var videoHeight = 480;
@@ -22,7 +32,6 @@ var videoHeight = 480;
 $(document).ready(function() {
     sequences = new Map();
     currentObjects = new Map();
-    setUpHands();
     $.getJSON('data.json', function(data, status, xhr){
         for (var i = 0; i < data.sequences.length; i++){
             var levelMap = new Map();
@@ -35,14 +44,37 @@ $(document).ready(function() {
         console.log(sequences);
         addEventListener('mousemove', onMouseMove);
 
-        $("#toggle").click(function(){
-            $("#toggle").css({"display": "none"});
-            $("#info").css({"display": "block"});
+        $("#hamburger").click(function(){
+            toggleSidebar(true);
         });
-    
-        $("#info").click(function(){
-            $("#toggle").css({"display": "block"});
-            $("#info").css({"display": "none"});
+
+        $(".dropdown-item").click(function(e){
+            onDropdownItemClicked(e);
+        });
+
+        $("#control-dropdown").hover(function(){
+            setControlDropdown();
+        });
+
+        $("#debug-dropdown").hover(function(){
+            setDebugDropdown();
+        });
+
+        $("#menu-button").click(function(){
+            openMenu();
+            toggleSidebar(false);
+        });
+
+        $("#background").click(function(){
+            if (sidebarShown){
+                toggleSidebar(false);
+            }
+        });
+
+        addEventListener("keypress", (e) => {
+            if (e.key == "s"){
+                trySkip();
+            }
         });
     });
 });
@@ -117,7 +149,6 @@ function setLevel(levelNum){
             div.style.transform = "translate(-50%, -50%) scale(" + scaleX + ", " + scaleY + ")";
         }
         
-        console.log("Setting obj " + obj.name + " to " + xPos + ', ' + yPos);
         div.appendChild(img);
         div.appendChild(glow);
 
@@ -135,7 +166,7 @@ function setLevel(levelNum){
 }
 
 function onMouseMove(e){
-    if (!handsMode){
+    if (!handsMode && !noseMode){
         updateObjects(e.pageX, e.pageY);
     }
 }
@@ -181,7 +212,6 @@ function updateObjects(x, y){
             document.getElementById(name).style.transform = "translate(-50%, -50%) scale(" + scaleX + ", " + scaleY + ")";
         }
         
-        
         $("#" + name).css({
             left: newLeft,
             top: newTop,
@@ -205,8 +235,14 @@ function updateObjects(x, y){
             }, 1000);
         }
         if (currentLevel.hasOwnProperty("leeway") && dist < currentLevel.leeway){
-            updateObjects(currentLevel.targetX, currentLevel.targetY);
+            trySkip();
         }
+    }
+}
+
+function trySkip(){
+    if (currentLevel != null && currentLevel.level > 0){
+        updateObjects(currentLevel.targetX, currentLevel.targetY);
     }
 }
 
@@ -225,11 +261,11 @@ function openMenu(){
             var status = localStorage.getItem(name);
             console.log("Status of " + name + " is "+ status);
             if (status == null){
-                $("#" + name).attr("class","level locked");
+                $("#" + name).attr("class","level clickable locked");
                 $("#" + name).click(null);
             }
             else if (status == "unlocked"){
-                $("#" + name).attr("class","level unlocked");
+                $("#" + name).attr("class","level clickable unlocked");
                 $("#" + name).click(function(){
                     closeMenu();
                     setSequence(name);
@@ -237,7 +273,7 @@ function openMenu(){
                 });
             }
             else if (status == "done"){
-                $("#" + name).attr("class","level done");
+                $("#" + name).attr("class","level clickable done");
                 $("#" + name).click(function(){
                     closeMenu();
                     setSequence(name);
@@ -277,9 +313,7 @@ function getPixelValue(value){
     return total;
 }
 
-// Hands
-async function setUpHands(){
-    const model = handPoseDetection.SupportedModels.MediaPipeHands;
+async function setUpVideo(){
     videoDiv = document.getElementById('vid-div');
     video = document.getElementById('vid');
     canvas = document.getElementById('vid-canvas');
@@ -288,19 +322,12 @@ async function setUpHands(){
     canvas.height = videoHeight;
     video.style.width = videoWidth + "px";
     video.style.height = videoHeight + "px";
-    const detectorConfig = {
-        runtime: 'mediapipe',
-        modelType: 'full',
-        solutionPath: "https://cdn.jsdelivr.net/npm/@mediapipe/hands/"
-    };
-    
-    detector = await handPoseDetection.createDetector(model, detectorConfig);
-    handsReady = true;
-    console.log("Hands ready");
+    videoDiv.style.display = "flex";
+
     addEventListener("keypress", (e) => {
         if (e.key == "h"){
             console.log("Toggling video");
-            videoDiv.style.display = videoShowing ? "none" : "flex";
+            $('#vid-div').css( "zIndex", videoShowing ? "-1" : "1");
             videoShowing = !videoShowing;
         }
     });
@@ -308,21 +335,52 @@ async function setUpHands(){
     var camera_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
     video.srcObject = camera_stream;
 
-    handsMode = true;
+    videoSetUp = true;
+}
 
+// Hands
+async function setUpHands(){
+    if (!videoSetUp){
+        setUpVideo();
+    }
+    video = document.getElementById('vid');
+    const model = handPoseDetection.SupportedModels.MediaPipeHands;
+    const detectorConfig = {
+        runtime: 'mediapipe',
+        modelType: 'full',
+        solutionPath: "https://cdn.jsdelivr.net/npm/@mediapipe/hands/"
+    };
+    
+    detector = await handPoseDetection.createDetector(model, detectorConfig);
+   
+    var camera_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    video.srcObject = camera_stream;
+
+    video.addEventListener("playing", function() {
+        handsReady = true;
+        $("#cursor").css({"display": "flex"});
+    });
+    
     setInterval(async () => {
         await readHands();
     }, 100);
 }
 
+function teardownHands(){
+    detector.dispose();
+    detector = null;
+    handsReady = false;
+    if (!noseMode){
+        $("#cursor").css({"display": "none"});
+    }
+}
+
 async function readHands(){
     let hands = null;
-    if (detector != null && videoShowing && handsMode) {
+    if (detector != null && handsReady) {
         try {
             hands = await detector.estimateHands(video, {flipHorizontal: true});
         } catch (error) {
-            detector.dispose();
-            detector = null;
             console.log(error);
         }
     }
@@ -330,7 +388,7 @@ async function readHands(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     document.getElementById("vid-coords").innerHTML = "";
     var indexData = [];
-    for (var i = 0; hands != null && i < hands.length && i < 2; i++){
+    for (var i = 0; hands != null && i < hands.length; i++){
         for (var j = 0; j < hands[i].keypoints.length; j++){
             if (hands[i].keypoints[j].name == 'index_finger_tip'){
                 indexData.push([hands[i].keypoints[j].x.toFixed(2), hands[i].keypoints[j].y.toFixed(2)]);
@@ -339,11 +397,24 @@ async function readHands(){
         }
     }
 
-    indexData.sort((a, b) => { return a[0] - b[0]});
-    for (var i = 0; i < indexData.length; i++){
-        renderIndexFinger(indexData[i], i);
-        processIndexPosition(indexData[i], i);
+    if (indexData.length == 0){
+        lastIndexPos = [0, 0];
+        return;
     }
+
+    indexData.sort((a, b) => { 
+       return dist(a, lastIndexPos) - dist(b, lastIndexPos);
+    });
+
+    lastIndexPos = indexData[0];
+    renderIndexFinger(indexData[0], 0);
+    processIndexPosition(indexData[0]);
+}
+
+function dist(coord1, coord2){
+    var deltaX = Math.abs(coord1[0] - coord2[0]);
+    var deltaY = Math.abs(coord1[1] - coord2[1]);
+    return Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
 }
 
 function renderIndexFinger(coord, num){
@@ -352,8 +423,203 @@ function renderIndexFinger(coord, num){
     document.getElementById("vid-coords").innerHTML += coord[0] + ", " + coord[1] + "\n";
 }
 
-function processIndexPosition(coord, num){
+function processIndexPosition(coord){
     var x = coord[0] / videoWidth * window.innerWidth;
     var y = coord[1] / videoHeight * window.innerHeight;
-    updateObjects(x, y);
+
+    $("#cursor").css({left: x, top: y});
+
+    var collisions = $("#cursor").collision(".clickable");
+    if (collisions.length > 0 && collisionId != collisions[0].id){
+        console.log(collisions[0]);
+        startHover(collisions[0]);
+    }
+    else if (collisions.length == 0){
+        stopHover();
+    }
+
+    updateObjects(Math.ceil(x), Math.ceil(y));
+}
+
+// Nose
+async function setUpNose(){
+    if (!videoSetUp){
+        setUpVideo();
+    }
+    video = document.getElementById('vid');
+    const model = faceDetection.SupportedModels.MediaPipeFaceDetector;
+    const detectorConfig = {
+        runtime: 'mediapipe',
+        solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/face_detection',
+    }
+    detector = await faceDetection.createDetector(model, detectorConfig);
+    
+    video.addEventListener("playing", function() {
+        noseReady = true;
+        $("#cursor").css({"display": "flex"});
+    });
+    
+    setInterval(async () => {
+        await readNose();
+    }, 50);
+}
+
+function teardownNose(){
+    detector.dispose();
+    detector = null;
+    noseReady = false;
+    if (!handsMode){
+        $("#cursor").css({"display": "none"});
+    }
+}
+
+async function readNose(){
+    let faces = null;
+    if (detector != null && noseReady) {
+        try {
+            faces = await detector.estimateFaces(video, {flipHorizontal: true});
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("vid-coords").innerHTML = "";
+    var noseData = [];
+    for (var i = 0; faces != null && i < faces.length && i < 2; i++){
+        for (var j = 0; j < faces[i].keypoints.length; j++){
+            if (faces[i].keypoints[j].name == 'noseTip'){
+                noseData.push([faces[i].keypoints[j].x.toFixed(2), faces[i].keypoints[j].y.toFixed(2)]);
+                break;
+            }
+        }
+    }
+
+    if (noseData.length == 0){
+        lastNosePos = [0, 0];
+        return;
+    }
+
+    noseData.sort((a, b) => { 
+       return dist(a, lastNosePos) - dist(b, lastNosePos);
+    });
+
+    lastNosePos = noseData[0];
+    renderIndexFinger(noseData[0], 0);
+    processIndexPosition(noseData[0]);
+}
+
+
+
+function toggleSidebar(show){
+    sidebarShown = show;
+    if (show){
+        $("#hamburger").css({"display": "none"});
+        $("#side-bar").removeClass("hidden");
+    }
+    else{
+        $("#hamburger").css({"display": "block"});
+        $("#side-bar").addClass("hidden");
+    }
+}
+
+function setControlDropdown(){
+    if (handsMode){
+        $("#dropdown-hand").css({"display": "none"});
+        $("#dropdown-nose").css({"display": "block"});
+        $("#dropdown-mouse").css({"display": "block"});
+    }
+    else if (noseMode){
+        $("#dropdown-nose").css({"display": "none"});
+        $("#dropdown-hand").css({"display": "block"});
+        $("#dropdown-mouse").css({"display": "block"});
+    }
+    else{
+        $("#dropdown-mouse").css({"display": "none"});
+        $("#dropdown-nose").css({"display": "block"});
+        $("#dropdown-hand").css({"display": "block"});
+    }
+}
+
+function setDebugDropdown(){
+    if (debugOn){
+        $("#dropdown-on").css({"display": "none"});
+        $("#dropdown-off").css({"display": "block"});
+    }
+    else {
+        $("#dropdown-on").css({"display": "block"});
+        $("#dropdown-off").css({"display": "none"});
+    }
+    
+}
+
+function onDropdownItemClicked(e){
+    if (e.target.classList.contains("control")){
+        if (e.target.id == "dropdown-hand"){
+            if (noseMode){
+                teardownNose();
+            }
+            handsMode = true;
+            noseMode = false;
+            setUpHands();
+            $("#control-dropdown-current")[0].innerHTML = "index finger";
+        }
+        else if (e.target.id == "dropdown-nose"){
+            if (handsMode){
+                teardownHands();
+            }
+            noseMode = true;
+            handsMode = false;
+            setUpNose();
+            $("#control-dropdown-current")[0].innerHTML = "nose";
+        }
+        else{
+            if (noseMode){
+                teardownNose();
+            }
+            else if (handsMode){
+                teardownHands();
+            }
+            handsMode = false;
+            noseMode = false;
+            $("#control-dropdown-current")[0].innerHTML = "mouse";
+        }
+        setControlDropdown();
+    }
+    else if (e.target.classList.contains("debug-sidebar")){
+        if (e.target.id == "dropdown-on"){
+            $("#debug-dropdown-current")[0].innerHTML = "on";
+            $("#info").css({"display": "block"});
+            debugOn = true;
+        }
+        else {
+            $("#debug-dropdown-current")[0].innerHTML = "off";
+            $("#info").css({"display": "none"});
+            debugOn = false;
+        }
+        setDebugDropdown();
+    }
+}
+
+function startHover(collision){
+    collisionId = collision.id;
+    cursorTimeout = setTimeout(() => { $('#' + collisionId).click(); }, 1000);
+    var percent = 0;
+    cursorInterval = setInterval(() => {
+        $('#cursor-border')[0].style.setProperty("--p", percent);
+        percent += 5;
+        if (percent >= 105){
+            clearInterval(cursorInterval);
+        }
+    }, 25);
+}
+
+function stopHover(){
+    if (collisionId == ""){
+        return;
+    }
+    collisionId = "";
+    clearInterval(cursorInterval);
+    clearTimeout(cursorTimeout);
+    $('#cursor-border')[0].style.setProperty("--p", "0");
 }
