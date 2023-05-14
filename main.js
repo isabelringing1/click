@@ -6,10 +6,23 @@ var started = false;
 var moveDelay = 50;
 var lastMousePos;
 var levelFinished = true;
+var handsReady = false;
+var videoShowing = false;
+var video;
+var videoDiv;
+var canvas;
+var ctx;
+var detector;
+var media_recorder;
+var handsMode = false;
+
+var videoWidth = 640;
+var videoHeight = 480;
 
 $(document).ready(function() {
     sequences = new Map();
     currentObjects = new Map();
+    setUpHands();
     $.getJSON('data.json', function(data, status, xhr){
         for (var i = 0; i < data.sequences.length; i++){
             var levelMap = new Map();
@@ -122,7 +135,9 @@ function setLevel(levelNum){
 }
 
 function onMouseMove(e){
-    updateObjects(e.pageX, e.pageY);
+    if (!handsMode){
+        updateObjects(e.pageX, e.pageY);
+    }
 }
 
 function updateObjects(x, y){
@@ -260,4 +275,85 @@ function getPixelValue(value){
     }
 
     return total;
+}
+
+// Hands
+async function setUpHands(){
+    const model = handPoseDetection.SupportedModels.MediaPipeHands;
+    videoDiv = document.getElementById('vid-div');
+    video = document.getElementById('vid');
+    canvas = document.getElementById('vid-canvas');
+    ctx = canvas.getContext("2d");
+    canvas.width = videoWidth;
+    canvas.height = videoHeight;
+    video.style.width = videoWidth + "px";
+    video.style.height = videoHeight + "px";
+    const detectorConfig = {
+        runtime: 'mediapipe',
+        modelType: 'full',
+        solutionPath: "https://cdn.jsdelivr.net/npm/@mediapipe/hands/"
+    };
+    
+    detector = await handPoseDetection.createDetector(model, detectorConfig);
+    handsReady = true;
+    console.log("Hands ready");
+    addEventListener("keypress", (e) => {
+        if (e.key == "h"){
+            console.log("Toggling video");
+            videoDiv.style.display = videoShowing ? "none" : "flex";
+            videoShowing = !videoShowing;
+        }
+    });
+
+    var camera_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    video.srcObject = camera_stream;
+
+    handsMode = true;
+
+    setInterval(async () => {
+        await readHands();
+    }, 100);
+}
+
+async function readHands(){
+    let hands = null;
+    if (detector != null && videoShowing && handsMode) {
+        try {
+            hands = await detector.estimateHands(video, {flipHorizontal: true});
+        } catch (error) {
+            detector.dispose();
+            detector = null;
+            console.log(error);
+        }
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("vid-coords").innerHTML = "";
+    var indexData = [];
+    for (var i = 0; hands != null && i < hands.length && i < 2; i++){
+        for (var j = 0; j < hands[i].keypoints.length; j++){
+            if (hands[i].keypoints[j].name == 'index_finger_tip'){
+                indexData.push([hands[i].keypoints[j].x.toFixed(2), hands[i].keypoints[j].y.toFixed(2)]);
+                break;
+            }
+        }
+    }
+
+    indexData.sort((a, b) => { return a[0] - b[0]});
+    for (var i = 0; i < indexData.length; i++){
+        renderIndexFinger(indexData[i], i);
+        processIndexPosition(indexData[i], i);
+    }
+}
+
+function renderIndexFinger(coord, num){
+    ctx.fillStyle = num == 0 ? "red" : "blue";
+    ctx.fillRect(coord[0], coord[1], 5, 5);
+    document.getElementById("vid-coords").innerHTML += coord[0] + ", " + coord[1] + "\n";
+}
+
+function processIndexPosition(coord, num){
+    var x = coord[0] / videoWidth * window.innerWidth;
+    var y = coord[1] / videoHeight * window.innerHeight;
+    updateObjects(x, y);
 }
