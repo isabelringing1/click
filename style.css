@@ -98,51 +98,151 @@ body{
 }
 
 @keyframes winAnim {
-    0% {
-        transform: scale(1.06);
-        -webkit-transform: scale(1.06);
-        filter: brightness(1.5) blur(10px);
-        -webkit-filter: brightness(1.5) blur(15px);
-    }
-    50% {
-        transform: scale(1.2);
-        -webkit-transform: scale(1.2);
-        filter: brightness(1.8) blur(15px);
-        -webkit-filter: brightness(1.8) blur(15px);
-    }
-    100% {
-        transform: scale(1.06);
-        -webkit-transform: scale(1.06);
-        filter: brightness(1) blur(10px);
-        -webkit-filter: brightness(1) blur(15px);
-    }
-  }
+0% {
+    transform: scale(1.06);
+    -webkit-transform: scale(1.06);
+    filter: brightness(1.5) blur(10px);
+    -webkit-filter: brightness(1.5) blur(15px);
+}
+50% {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    filter: brightness(1.8) blur(15px);
+    -webkit-filter: brightness(1.8) blur(15px);
+}
+100% {
+    transform: scale(1.06);
+    -webkit-transform: scale(1.06);
+    filter: brightness(1) blur(10px);
+    -webkit-filter: brightness(1) blur(15px);
+}
+}
 
-  #vid-div{
+#vid-div{
     width: 100%;
     height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
+    align-items: end;
+    justify-content: end;
+    z-index: -1;
     position: absolute;
-  }
+}
 
-  #vid{
+#vid{
     width: 640px;
     height: 480px;
     position: absolute;
     opacity: 0.5;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-  }
+}
 
-  #vid-canvas{
+#vid-canvas{
     position: absolute;
-  }
+}
 
-  #vid-coords{
+#vid-coords{
     bottom: 0;
     left: 0;
     position: relative;
+}
+
+#hamburger{
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+#side-bar{
+    background-color: rgb(255, 255, 255, 0.2);
+    right: 0px;
+    width: 400px;
+    height: 100vh;
+    position: absolute;
+    transition: right 0.5s ease-in-out;
+    font-size: 30px;
+    padding: 50px;
+    z-index: 100;
+}
+
+#side-bar.hidden{
+    right: -500px;
+}
+
+#control{
+    width: fit-content;
+}
+
+#control-dropdown{
+    align-items: right;
+    position: absolute;
+}
+
+#control-dropdown-content{
+    display: none;
+    position: absolute;
+}
+
+#control-dropdown-content span{
+    display: block;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+#control-dropdown:hover #control-dropdown-content{
+    display: block;
+}
+
+.dropdown-item:hover{
+    font-weight: bold;
+}
+
+#debug-sidebar{
+    width: fit-content;
+}
+
+#debug-dropdown{
+    align-items: right;
+    position: absolute;
+}
+
+#debug-dropdown-content{
+    display: none;
+    position: absolute;
+}
+
+#debug-dropdown-content span{
+    display: block;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+#debug-dropdown:hover #debug-dropdown-content{
+    display: block;
+}
+
+#cursor{
+    position: fixed;
+    z-index: 10;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+#cursor-border{
+    transform: translate(-35%, -35%);
+    --v:calc( ((18/5) * var(--p) - 90)*1deg);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    position: fixed;
+    border-radius: 50%;
+    padding: 5px;
+    background:
+      linear-gradient(var(--v), transparent 50%,white        0) 0/min(100%,(var(--p) - 50)*100%),
+      linear-gradient(to right, transparent 50%,white 0);
+    -webkit-mask:
+      linear-gradient(var(--v), white     50%,transparent 0) 0/min(100%,(50 - var(--p))*100%),
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
   }

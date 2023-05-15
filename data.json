@@ -90,6 +90,7 @@
       "levels": [
         {
           "level": 1,
+          "leeway": 3,
           "targetX": 1000,
           "targetY": 400,
           "objects": [
@@ -113,6 +114,7 @@
         },
         {
           "level": 2,
+          "leeway": 3,
           "targetX": 1200,
           "targetY": "50vh",
           "objects": [
@@ -154,6 +156,7 @@
           "level": 3,
           "targetX": "50vw",
           "targetY": "40vh",
+          "leeway": 3,
           "objects": [
             {
               "name": "big_triangle",
@@ -209,6 +212,7 @@
           "level": 4,
           "targetX": "10vw",
           "targetY": "70vh",
+          "leeway": 3,
           "objects": [
             {
               "name": "small_circle",
@@ -241,6 +245,104 @@
               "yFollow": 0.6,
               "offsetTargetX": "40vw",
               "offsetTargetY": "-20vh"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "targetX": "80vw",
+          "targetY": "90vh",
+          "leeway": 3,
+          "objects": [
+            {
+              "name": "big_triangle",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-30vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "small_triangle",
+              "number": 1,
+              "extension": "png",
+              "xFollow": -1.1,
+              "yFollow": -0.4,
+              "offsetTargetX": "-30vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "big_triangle",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0.2,
+              "yFollow": -0.8,
+              "offsetTargetX": "-15vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "small_triangle",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-15vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "big_triangle",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "0vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "small_triangle",
+              "number": 3,
+              "extension": "png",
+              "xFollow": 0.1,
+              "yFollow": 0.4,
+              "offsetTargetX": "0vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "big_triangle",
+              "number": 4,
+              "extension": "png",
+              "xFollow": -1.2,
+              "yFollow": 0.8,
+              "offsetTargetX": "-45vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "small_triangle",
+              "number": 4,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-45vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "big_triangle",
+              "number": 5,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "-60vw",
+              "offsetTargetY": "-40vh"
+            },
+            {
+              "name": "small_triangle",
+              "number": 5,
+              "extension": "png",
+              "xFollow": 0.4,
+              "yFollow": 0.2,
+              "offsetTargetX": "-60vw",
+              "offsetTargetY": "-40vh"
             }
           ]
         }
@@ -299,52 +401,9 @@
         },
         {
           "level": 2,
-          "targetX": "30vw",
-          "targetY": "10vh",
-          "leeway": 20,
-          "objects": [
-            {
-              "name": "eye",
-              "number": 1,
-              "extension": "png",
-              "xFollow": 0,
-              "yFollow": 0,
-              "offsetTargetX": "5vw",
-              "offsetTargetY": "40vh"
-            },
-            {
-              "name": "eye",
-              "number": 2,
-              "extension": "png",
-              "xFollow": 0,
-              "yFollow": 0,
-              "offsetTargetX": "35vw",
-              "offsetTargetY": "40vh"
-            },
-            {
-              "name": "pupil",
-              "number": 1,
-              "extension": "png",
-              "xFollow": -0.08,
-              "yFollow": 0.08,
-              "offsetTargetX": "5vw",
-              "offsetTargetY": "40vh"
-            },
-            {
-              "name": "pupil",
-              "number": 2,
-              "extension": "png",
-              "xFollow": 0.08,
-              "yFollow": -0.08,
-              "offsetTargetX": "35vw",
-              "offsetTargetY": "40vh"
-            }
-          ]
-        },
-        {
-          "level": 3,
           "targetX": "50vw",
           "targetY": "50vh",
+          "leeway": 3,
           "objects": [
             {
               "name": "red_square",
@@ -390,7 +449,7 @@
           ]
         },
         {
-          "level": 4,
+          "level": 3,
           "targetX": "20vw",
           "targetY": "20vh",
           "leeway": 3,
@@ -445,6 +504,214 @@
               "offsetTargetX": "262px,30vw",
               "offsetTargetY": "30vh",
               "rotation": 3
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "targetX": "20vw",
+          "targetY": "50vh",
+          "leeway": 10,
+          "objects": [
+            {
+              "name": "E",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "30vw",
+              "offsetTargetY": "-30vh",
+              "blur": 1,
+              "glow": "off"
+            },
+            {
+              "name": "I",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "20vw",
+              "offsetTargetY": "-5vh",
+              "blur": 1.5,
+              "glow": "off"
+            },
+            {
+              "name": "T",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "30vw",
+              "offsetTargetY": "-5vh",
+              "blur": 1.5,
+              "glow": "off"
+            },
+            {
+              "name": "P",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "40vw",
+              "offsetTargetY": "-5vh",
+              "blur": 1.5,
+              "glow": "off"
+            },
+            {
+              "name": "D",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "14vw",
+              "offsetTargetY": "15vh",
+              "blur": 2,
+              "glow": "off"
+            },
+            {
+              "name": "A",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "22vw",
+              "offsetTargetY": "15vh",
+              "blur": 2,
+              "glow": "off"
+            },
+            {
+              "name": "L",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "30vw",
+              "offsetTargetY": "15vh",
+              "blur": 2,
+              "glow": "off"
+            },
+            {
+              "name": "F",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "38vw",
+              "offsetTargetY": "15vh",
+              "blur": 2,
+              "glow": "off"
+            },
+            {
+              "name": "K",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "46vw",
+              "offsetTargetY": "15vh",
+              "blur": 2,
+              "glow": "off"
+            },
+            {
+              "name": "R",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "10vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "W",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "14vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "U",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "18vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "B",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "22vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "J",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "26vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "S",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "30vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "X",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "34vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "V",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "38vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "H",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "42vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "Q",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "46vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
+            },
+            {
+              "name": "Z",
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "50vw",
+              "offsetTargetY": "30vh",
+              "blur": 2.5,
+              "glow": "off"
             }
           ]
         }
@@ -1335,6 +1602,50 @@
               "yFollow": 1,
               "offsetTargetX": 0,
               "offsetTargetY": 0
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "targetX": "30vw",
+          "targetY": "10vh",
+          "leeway": 20,
+          "objects": [
+            {
+              "name": "eye",
+              "number": 1,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "5vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "eye",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0,
+              "yFollow": 0,
+              "offsetTargetX": "35vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "pupil",
+              "number": 1,
+              "extension": "png",
+              "xFollow": -0.08,
+              "yFollow": 0.08,
+              "offsetTargetX": "5vw",
+              "offsetTargetY": "40vh"
+            },
+            {
+              "name": "pupil",
+              "number": 2,
+              "extension": "png",
+              "xFollow": 0.08,
+              "yFollow": -0.08,
+              "offsetTargetX": "35vw",
+              "offsetTargetY": "40vh"
             }
           ]
         }
