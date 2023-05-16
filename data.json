@@ -90,7 +90,7 @@
       "levels": [
         {
           "level": 1,
-          "leeway": 3,
+          "bodyLeeway": 3,
           "targetX": 1000,
           "targetY": 400,
           "objects": [
@@ -114,7 +114,7 @@
         },
         {
           "level": 2,
-          "leeway": 3,
+          "bodyLeeway": 3,
           "targetX": 1200,
           "targetY": "50vh",
           "objects": [
@@ -156,7 +156,7 @@
           "level": 3,
           "targetX": "50vw",
           "targetY": "40vh",
-          "leeway": 3,
+          "bodyLeeway": 3,
           "objects": [
             {
               "name": "big_triangle",
@@ -211,8 +211,8 @@
         {
           "level": 4,
           "targetX": "10vw",
-          "targetY": "70vh",
-          "leeway": 3,
+          "targetY": "50vh",
+          "bodyLeeway": 3,
           "objects": [
             {
               "name": "small_circle",
@@ -220,7 +220,7 @@
               "xFollow": -0.1,
               "yFollow": -0.1,
               "offsetTargetX": "40vw",
-              "offsetTargetY": "-20vh"
+              "offsetTargetY": "0vh"
             },
             {
               "name": "big_circle",
@@ -228,7 +228,7 @@
               "xFollow": -3,
               "yFollow": -2,
               "offsetTargetX": "40vw",
-              "offsetTargetY": "-20vh"
+              "offsetTargetY": "0vh"
             },
             {
               "name": "bigger_circle",
@@ -236,7 +236,7 @@
               "xFollow": 0.5,
               "yFollow": 0.2,
               "offsetTargetX": "40vw",
-              "offsetTargetY": "-20vh"
+              "offsetTargetY": "0vh"
             },
             {
               "name": "biggest_circle",
@@ -244,15 +244,16 @@
               "xFollow": -0.3,
               "yFollow": 0.6,
               "offsetTargetX": "40vw",
-              "offsetTargetY": "-20vh"
+              "offsetTargetY": "0vh"
             }
           ]
         },
         {
           "level": 5,
           "targetX": "80vw",
-          "targetY": "90vh",
+          "targetY": "60vh",
           "leeway": 3,
+          "bodyLeeway": 6,
           "objects": [
             {
               "name": "big_triangle",
@@ -261,7 +262,7 @@
               "xFollow": 0,
               "yFollow": 0,
               "offsetTargetX": "-30vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "small_triangle",
@@ -270,7 +271,7 @@
               "xFollow": -1.1,
               "yFollow": -0.4,
               "offsetTargetX": "-30vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "big_triangle",
@@ -279,7 +280,7 @@
               "xFollow": 0.2,
               "yFollow": -0.8,
               "offsetTargetX": "-15vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "small_triangle",
@@ -288,7 +289,7 @@
               "xFollow": 0,
               "yFollow": 0,
               "offsetTargetX": "-15vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "big_triangle",
@@ -297,7 +298,7 @@
               "xFollow": 0,
               "yFollow": 0,
               "offsetTargetX": "0vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "small_triangle",
@@ -306,7 +307,7 @@
               "xFollow": 0.1,
               "yFollow": 0.4,
               "offsetTargetX": "0vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "big_triangle",
@@ -315,7 +316,7 @@
               "xFollow": -1.2,
               "yFollow": 0.8,
               "offsetTargetX": "-45vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "small_triangle",
@@ -324,7 +325,7 @@
               "xFollow": 0,
               "yFollow": 0,
               "offsetTargetX": "-45vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "big_triangle",
@@ -333,7 +334,7 @@
               "xFollow": 0,
               "yFollow": 0,
               "offsetTargetX": "-60vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             },
             {
               "name": "small_triangle",
@@ -342,7 +343,7 @@
               "xFollow": 0.4,
               "yFollow": 0.2,
               "offsetTargetX": "-60vw",
-              "offsetTargetY": "-40vh"
+              "offsetTargetY": "-10vh"
             }
           ]
         }
@@ -357,7 +358,8 @@
           "targetX": "20vw",
           "targetY": "70vh",
           "glow": "off",
-          "leeway": 5,
+          "leeway": 2,
+          "bodyLeeway": 8,
           "objects": [
             {
               "name": "blue_square",
@@ -403,7 +405,7 @@
           "level": 2,
           "targetX": "50vw",
           "targetY": "50vh",
-          "leeway": 3,
+          "bodyLeeway": 10,
           "objects": [
             {
               "name": "red_square",
@@ -452,6 +454,7 @@
           "level": 3,
           "targetX": "20vw",
           "targetY": "20vh",
+          "bodyLeeway": 15,
           "leeway": 3,
           "objects": [
             {
@@ -511,7 +514,8 @@
           "level": 4,
           "targetX": "20vw",
           "targetY": "50vh",
-          "leeway": 10,
+          "bodyLeeway": 20,
+          "leeway": 5,
           "objects": [
             {
               "name": "E",
@@ -725,6 +729,8 @@
           "level": 1,
           "targetX": "30vw",
           "targetY": "60vh",
+          "bodyLeeway": 5,
+          "leeway": 3,
           "objects": [
             {
               "name": "bw_rect_1",
@@ -957,6 +963,7 @@
           "level": 2,
           "targetX": "65vw",
           "targetY": "75vh",
+          "bodyLeeway": 10,
           "leeway": 3,
           "objects": [
             {
@@ -1030,6 +1037,7 @@
           "level": 3,
           "targetX": "25vw",
           "targetY": "25vh",
+          "bodyLeeway": 4,
           "objects": [
             {
               "name": "braid",

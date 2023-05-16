@@ -234,7 +234,12 @@ function updateObjects(x, y){
                 setLevel(currentLevel.level + 1);
             }, 1000);
         }
-        if (currentLevel.hasOwnProperty("leeway") && dist < currentLevel.leeway){
+        if (noseMode || handsMode){
+            if (currentLevel.hasOwnProperty("bodyLeeway") && dist < currentLevel.bodyLeeway){
+                trySkip();
+            }
+        }
+        else if (currentLevel.hasOwnProperty("leeway") && dist < currentLevel.leeway){
             trySkip();
         }
     }
